@@ -68,3 +68,6 @@ Find events. Anywhere.
     Given the user is viewing the details of an event
     When the user selects the "Charts" option
     Then the app should display visual charts representing event-related data
+
+
+Eventing is an app mainly designed for education and experimentation, so serverless functions will provide a very cost-effective environment for minimal use. Having AWS Lambda manage the infrastructure will allow me to spend most of my time on developing the app. It will handle event-driven situations (like this one) well, and will work well with providing third-party app integration.

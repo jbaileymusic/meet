@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+// src/App.js
+
+import { useState } from 'react';
+import CitySearch from './components/CitySearch';
+import EventList from './components/EventList';
+import NumberOfEvents from './components/NumberOfEvents';
+import mockData from './mock-data';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [numberOfEvents, setNumberOfEvents] = useState(32);
+
+  const handleNumberOfEventsChange = (number) => {
+    setNumberOfEvents(number);
+  };
+
+ return (
+   <div className="App">
+    <CitySearch />
+    <NumberOfEvents 
+        numberOfEvents={numberOfEvents} 
+        onNumberOfEventsChange={handleNumberOfEventsChange} 
+      />
+    <EventList events={mockData.slice(0, numberOfEvents)}/>
+   </div>
+ );
 }
 
 export default App;

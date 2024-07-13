@@ -9,7 +9,7 @@
 }
 
 ul {
-  padding: 0;
+  padding: 1%;
   list-style: none;
 }
 
@@ -22,7 +22,7 @@ input[type="number"] {
   padding: 8px 6px 8px 10px;
   border-radius: 4px;
   outline: none;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   font-size: 14px;
   line-height: 20px;
   align-self: center;
@@ -36,27 +36,37 @@ input[type="number"] {
 
 #city-search {
   display: flex;
+  align-items: center;
   flex-direction: column;
-  margin: auto;
   position: relative;
 }
 
+#city-input {
+  margin: auto;
+}
+
 .suggestions {
-  width: 250px;
-  position: absolute;
-  top: 45px;
-  z-index: 2;
-  align-self: center;
+  list-style-type: none;
   margin: 0;
-  font-size: 14px;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 3px); 
+  background-color: white;
+  border: 3px solid #ccc;
+  border-radius: 6px;
+  width: 330px;
+  max-width: 330px; 
+  z-index: 1000;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  transform: translateX(-50%); /* Center the suggestions box */
 }
 
 .suggestions > li {
-  text-align: left;
+  text-align: center;
   padding: 8px 6px 8px 10px;
   background-color: #eee;
-  cursor: default;
+  cursor: pointer;
 }
 
 .suggestions > li:last-child {
@@ -71,18 +81,49 @@ input[type="number"] {
 .event {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
+  left: 50%;
   text-align: left;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
+  background-color:aliceblue;
   border-radius: 4px;
+  max-width: 600px;;
   position: relative;
+  transform: translateX(-50%);
+}
+
+.event .summary {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: larger;
+  padding-bottom: 10px;
+}
+
+.event .created {
+
+  padding-bottom: 10px;
+}
+
+.event .location {
+  font-weight: 600;
+  font-size: larger;
+  padding-bottom: 10px;
 }
 
 .details-btn {
   position: absolute;  
+  font-weight: 600;
   right: 5px;
   bottom: 5px;
   padding: 5px 8px;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+}
+
+.events-number-buttons .number-button {
+  margin: 5px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-weight: 700;
+  background-color: #bcdcdb;
 }

@@ -34,6 +34,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         <input
           type="text"
           className="city"
+          id="city-input"
           placeholder="Search for a city"
           value={query}
           onFocus={() => setShowSuggestions(true)}
@@ -44,7 +45,7 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
             {suggestions.map((suggestion) => {
               return <li onClick={handleItemClicked} key={suggestion}>{suggestion}</li>
             })}
-            <li key='See all cities' onClick={handleItemClicked}>
+            <li key='SHOW ALL CITIES' onClick={handleItemClicked}>
               <b>See all cities</b>
             </li>
           </ul>

@@ -10,19 +10,19 @@ const Event = ({ event }) => {
     return null
   }
   return (
-    <li>
-      <div>{event.summary}</div>
-      <div>{event.created}</div>
-      <div>{event.location} </div>
-      <button onClick={() => setShowDetails(true)}>show details</button>
-      <button onClick={() => setShowDetails(false)}>hide details</button>
-      {showDetails && (
-        <div>
-          <p>Event Details Here</p>
-        </div>
-      )}
+    <li className="event">
+      <div className="summary">{event.summary}</div>
+      <div className="location">{event.location} </div>
+      <p className="created">{event && (new Date(event.created)).toUTCString()}</p>
+      {showDetails ?
+        <p className="details">{event && event.description}</p> :
+        null
+      }
+      <button className="details-btn" onClick={() => {
+        showDetails ? setShowDetails(false) : setShowDetails(true)
+      }}>{showDetails ? "Hide Details" : "Show Details"}</button>
     </li>
-  );
-};
+  )
+}
 
 export default Event;

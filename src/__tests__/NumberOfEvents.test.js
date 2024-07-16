@@ -5,13 +5,21 @@ import NumberOfEvents from '../components/NumberOfEvents';
 
 describe('<NumberOfEvents /> component', () => {
   let handleNumberOfEventsChange;
-  
+  let mockSetErrorAlert;
+
   beforeEach(() => {
     handleNumberOfEventsChange = jest.fn();
+    mockSetErrorAlert = jest.fn();
   });
 
   test('renders default number of events as 32', () => {
-    render(<NumberOfEvents numberOfEvents={32} onNumberOfEventsChange={handleNumberOfEventsChange} />);
+    render(
+      <NumberOfEvents
+        numberOfEvents={32}
+        onNumberOfEventsChange={handleNumberOfEventsChange}
+        setErrorAlert={mockSetErrorAlert}
+      />
+    );
     
     const button32 = screen.getByText('32 events');
     expect(button32).toBeInTheDocument();
@@ -20,7 +28,13 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   test('renders and handles 5 events button', () => {
-    render(<NumberOfEvents numberOfEvents={32} onNumberOfEventsChange={handleNumberOfEventsChange} />);
+    render(
+      <NumberOfEvents
+        numberOfEvents={32}
+        onNumberOfEventsChange={handleNumberOfEventsChange}
+        setErrorAlert={mockSetErrorAlert}
+      />
+    );
     
     const button5 = screen.getByText('5 events');
     expect(button5).toBeInTheDocument();
@@ -29,7 +43,13 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   test('renders and handles 10 events button', () => {
-    render(<NumberOfEvents numberOfEvents={32} onNumberOfEventsChange={handleNumberOfEventsChange} />);
+    render(
+      <NumberOfEvents
+        numberOfEvents={32}
+        onNumberOfEventsChange={handleNumberOfEventsChange}
+        setErrorAlert={mockSetErrorAlert}
+      />
+    );
     
     const button10 = screen.getByText('10 events');
     expect(button10).toBeInTheDocument();
@@ -38,7 +58,13 @@ describe('<NumberOfEvents /> component', () => {
   });
 
   test('renders and handles 20 events button', () => {
-    render(<NumberOfEvents numberOfEvents={32} onNumberOfEventsChange={handleNumberOfEventsChange} />);
+    render(
+      <NumberOfEvents
+        numberOfEvents={32}
+        onNumberOfEventsChange={handleNumberOfEventsChange}
+        setErrorAlert={mockSetErrorAlert}
+      />
+    );
     
     const button20 = screen.getByText('20 events');
     expect(button20).toBeInTheDocument();

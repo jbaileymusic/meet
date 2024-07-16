@@ -127,3 +127,11 @@ input[type="number"] {
   font-weight: 700;
   background-color: #bcdcdb;
 }
+
+.alerts-container {
+  position: fixed;
+  top: 0px;
+  left: 20px;
+  width: 250px;
+  z-index: 1000;
+}

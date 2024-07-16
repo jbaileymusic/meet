@@ -7,12 +7,15 @@ import NumberOfEvents from './components/NumberOfEvents';
 import mockData from './mock-data';
 import { extractLocations, getEvents } from './api';
 import './App.css';
+import { InfoAlert, ErrorAlert } from './components/Alert';
 
 const App = () => {
   const [events, setEvents] = useState([]);
   const [numberOfEvents, setNumberOfEvents] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [infoAlert, setInfoAlert] = useState("");
+  const [errorAlert, setErrorAlert] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -32,11 +35,22 @@ const App = () => {
   };
 
  return (
+   
    <div className="App">
-    <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+    <div className="alerts-container">
+        {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+        {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
+      </div>
+    
+    <CitySearch 
+      allLocations={allLocations} 
+      setCurrentCity={setCurrentCity} 
+      setInfoAlert={setInfoAlert} 
+      setErrorAlert={setErrorAlert} />
     <NumberOfEvents 
         numberOfEvents={numberOfEvents} 
         onNumberOfEventsChange={handleNumberOfEventsChange} 
+        setErrorAlert={setErrorAlert}
       />
     <EventList events={ events }/>
    </div>

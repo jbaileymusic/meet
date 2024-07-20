@@ -2,7 +2,6 @@
 
 import mockData from './mock-data';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 
 /**
  *

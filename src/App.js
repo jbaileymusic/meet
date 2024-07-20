@@ -27,6 +27,19 @@ const App = () => {
     fetchData();
   }, [currentCity, numberOfEvents]);
 
+  useEffect(() => {
+    const handleOnline = () => setWarningAlert("");
+    const handleOffline = () => setWarningAlert("You are currently offline. The data may not be up to date.");
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+
   const fetchData = async () => {
     const allEvents = await getEvents();
     const filteredEvents = currentCity === "See all cities" ?
